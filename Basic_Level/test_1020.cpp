@@ -11,10 +11,10 @@ using namespace std;
 
 struct mooncake
 {
-    double mount,print,unit;
+    double mount,print,unit; // 库存量，总售价，单价
 }cake[1005];
 
-bool cmp(mooncake a,mooncake b)
+bool cmp(mooncake a,mooncake b) // 按单价从大到小排序
 {
     return a.unit > b.unit;
 }
