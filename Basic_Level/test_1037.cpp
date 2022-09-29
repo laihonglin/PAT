@@ -1,3 +1,9 @@
+/*
+ * author: 赖弘霖
+ * date: 2022/9/29
+ * topic: 在霍格沃茨找零钱 
+ * */
+
 #include <iostream>
 
 using namespace std;
