@@ -320,7 +320,6 @@ AVLTreeNode<T> *AVLTree<T>::remove(AVLTreeNode<T> *&pnode, T key)
                 else if (pnode->rchild != nullptr)
                     pnode = pnode->rchild;
                 delete ptemp;
-                return nullptr;
             }
         }
         else if (key > pnode->key) //要删除的节点比当前节点大，则在右子树进行删除
