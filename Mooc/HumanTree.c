@@ -60,19 +60,20 @@ HuffmanTree Create()
 
 void sort(MinHeap H, int i)
 {
-    int Parent, Child, Tmp;
-    Tmp = H->Data[i]->Weight;// 取出当前"根结点"值
+    int Parent, Child;
+    HuffmanTree Tmp;
+    Tmp = H->Data[i];// 取出当前"根结点"
     for (Parent = i; Parent * 2 <= H->Size; Parent = Child)
     {
         Child = Parent * 2;
         if ((Child != H->Size) && (H->Data[Child]->Weight > H->Data[Child + 1]->Weight))
             Child++;
-        if (Tmp <= H->Data[Child]->Weight)
+        if (Tmp->Weight <= H->Data[Child]->Weight)
             break;
         else
             H->Data[Parent] = H->Data[Child];
     }
-    H->Data[Parent]->Weight = Tmp;
+    H->Data[Parent] = Tmp;
 }
 
 void adjust(MinHeap H)
