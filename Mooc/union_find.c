@@ -1,3 +1,8 @@
+/**
+ * author: 赖弘霖
+ * date: 2022/10/14
+ * topic: 并查集的基本操作 
+ * */
 #include <stdio.h>
 #define MaxSize 1000     /* 集合最大元素个数 */
 typedef int ElementType; /* 默认元素可以用非负整数表示 */
@@ -27,7 +32,18 @@ void Union(SetType S[], ElementType X1, ElementType X2)
     int Root2 = Find(S, X2);
     // 如果根结点的下标不同，说明不是一个集合
     if (Root1 != Root2)
-        S[Root1].Parent = Root2; // 把 x1 挂到 x2 的集合
+    {
+        if(S[Root1].Data <= S[Root2].Data)
+        {
+            S[Root1].Parent += S[Root2].Parent;
+            S[Root2].Parent = Root1; // 把 x2 挂到 x1 的集合
+        }
+        else
+        {
+            S[Root2].Parent += S[Root1].Parent;
+            S[Root1].Parent = Root2; // 把 x1 挂到 x2 的集合
+        }  
+    }
 }
 
 int main()
@@ -50,4 +66,3 @@ int main()
     printf("%d\n",Find(S,8));
     return 0;
 }
-
